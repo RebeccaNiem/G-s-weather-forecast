@@ -6,7 +6,7 @@ body {
     rgba(148, 187, 233, 1) 100%
   );
 
-  margin: 70px;
+  margin: 10%;
 }
 .frontcontainer {
   background: #dfd3c3;
@@ -33,6 +33,7 @@ body {
   color: white;
   margin-left: 5px;
   font-size: 15px;
+  cursor: pointer;
 }
 
 footer {
