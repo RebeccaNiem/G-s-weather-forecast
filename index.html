@@ -9,11 +9,12 @@
   <body>
     <div class="frontcontainer">
       <header>
-        <form class="searchform">
+        <form class="searchform" id="search">
           <input
             type="search"
             placeholder="What is the weather in..?"
             required
+            id="search-form-input-id"
             class="search-form-input"
           />
           <input type="submit" value="let´s check" class="search-form-button" />
@@ -23,7 +24,7 @@
       <main>
         <div class="weather-data">
           <div>
-            <h1 class="weather-city">Amsterdam</h1>
+            <h1 class="weather-city" id="weather-city-id">Amsterdam</h1>
             <p class="weather-details">
               sunday 17:30, sunny
               <br />
@@ -52,5 +53,6 @@
         >
       </footer>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

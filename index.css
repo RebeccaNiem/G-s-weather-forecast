@@ -1,9 +1,15 @@
 body {
-  background-color: blueviolet;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+
   margin: 70px;
 }
 .frontcontainer {
-  background: white;
+  background: #dfd3c3;
   max-width: 600px;
   margin: 0 auto;
   padding: 50px;
@@ -11,16 +17,16 @@ body {
 }
 
 .search-form-input {
-  background-color: lightgrey;
+  background-color: whitesmoke;
   border: none;
   border-radius: 16px;
   width: 80%;
   padding: 16px;
-  color: white;
+  color: black;
 }
 
 .search-form-button {
-  background: blueviolet;
+  background: rgb(123, 208, 230);
   padding: 15px;
   border: none;
   border-radius: 12px;
@@ -38,7 +44,7 @@ footer {
 }
 
 a {
-  color: blueviolet;
+  color: rgb(123, 208, 230);
 }
 
 main {
@@ -61,7 +67,7 @@ main {
   line-height: 20px;
 }
 .weather-details strong {
-  color: blueviolet;
+  color: rgb(123, 208, 230);
 }
 
 .weather-container {
