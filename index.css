@@ -16,6 +16,11 @@ body {
   border-radius: 16px;
 }
 
+header {
+  border-bottom: 1px solid rgba(238, 174, 202, 1);
+  padding: 0 0 30px 0;
+}
+
 .search-form-input {
   background-color: whitesmoke;
   border: none;
@@ -74,7 +79,10 @@ main {
 .weather-details {
   font-size: 18px;
   line-height: 20px;
+  line-height: 24px;
+  font-weight: 500;
 }
+
 .weather-details strong {
   color: rgb(7, 105, 147);
 }
@@ -100,20 +108,36 @@ main {
   font-weight: bold;
 }
 
-// forecast
 .weather-forecast {
+  display: flex;
+  justify-content: space-around;
   margin-top: 20px;
-  text-align: center;
 }
 .weather-forecast-date {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
-  color: black;
-  opacity: 0.6;
+  line-height: 20px;
+  margin-bottom: 10px;
 }
+
 .weather-forecast-temperatures-min {
-  opacity: 0.6;
+  opacity: 0.7;
+}
+
+img {
+  text-align: center;
+}
+
+div {
+  display: block;
 }
 
 .weather-forecast-temperatures {
+  text-align: center;
+  margin-top: 10px;
   font-size: 13px;
+  padding: o 10px;
+  display: flex;
+  justify-content: center;
 }

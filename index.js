@@ -11,7 +11,6 @@ function refreshWeather(response) {
   let iconElement = document.querySelector("#icon");
 
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-icon"/>`;
-
   timeElement.innerHTML = formatDate(date);
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
@@ -55,7 +54,40 @@ function handleSearchSubmit(event) {
   citySearch(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+       <div class="weather-forecast">
+              <div class="weather-forecast-date">${day}</div>
+              <br />
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+                alt=""
+                width="40"
+              />
+              <br/>
+              <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-temperatures-max"> 18°</span>
+                <span class="weather-forecast-temperatures-min"> 12°</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        `;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 citySearch("Amsterdam");
+
+displayForecast();
