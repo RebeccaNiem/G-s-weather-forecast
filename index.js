@@ -56,45 +56,54 @@ function handleSearchSubmit(event) {
   citySearch(searchInput.value);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   apiKey = "280o02ba0daf2b414a53ctfe4e6155a2";
   apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast(rsponse) {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+function displayForecast(response) {
+  console.log(response.data);
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
        <div class="weather-forecast">
        
-              <div class="weather-forecast-date">${day}</div>
+              <div class="weather-forecast-date">${formatDay(day.time)}</div>
             
               <img 
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"  class="image"
+                src="${day.condition.icon_url}"  class="image"
                 alt=""
                 width="40"
-               
-              
               />
               <br/>
-          
-
               <div class="weather-forecast-temperatures">
               <br />
               <br />
-                <span class="weather-forecast-temperatures-max"> 18° </span>
+                <span class="weather-forecast-temperatures-max">${Math.round(
+                  day.temperature.maximum
+                )}° </span>
 
-                <span class="weather-forecast-temperatures-min"> 12°</span>
+                <span class="weather-forecast-temperatures-min">${Math.round(
+                  day.temperature.minimum
+                )}° </span>
               </div>
             </div>
           </div>
         </div>
         `;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");
